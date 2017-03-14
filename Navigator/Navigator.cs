@@ -1,6 +1,7 @@
 ﻿using Navigator.Engine;
 using System;
 using System.ComponentModel.Composition;
+using System.Windows.Forms;
 using ZzukBot.ExtensionFramework.Interfaces;
 
 namespace Navigator
@@ -11,6 +12,7 @@ namespace Navigator
         public string Author { get; } = "krycess";
         public string Name { get; } = "Navigator";
         public int Version { get; } = 1;
+        Form gui = new GUI.GUI();
         public void Dispose()
         {
             throw new NotImplementedException();
@@ -25,12 +27,13 @@ namespace Navigator
         }
         public void ShowGui()
         {
-            throw new NotImplementedException();
+            gui.Dispose();
+            gui = new GUI.GUI();
+            gui.Show();
         }
         public bool Start(Action parStopCallback)
         {
-            Manager.Instance.Start(parStopCallback);
-            return true;
+            return Manager.Instance.Start(parStopCallback);
         }
         public void Stop()
         {

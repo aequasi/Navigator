@@ -1,6 +1,5 @@
 ﻿using System;
 using ZzukBot.Game.Statics;
-using ZzukBot.Objects;
 
 namespace Navigator.Engine
 {
@@ -19,18 +18,11 @@ namespace Navigator.Engine
             {
                 return false;
             }
-            var player = ObjectManager.Instance.Player;
-            var target = ObjectManager.Instance.Target;
-            Location curPoint = player.Position;
-            Location endPoint = target.Position;
-            var path = Navigation.Instance.CalculatePath(ObjectManager.Instance.Player.MapId, curPoint, endPoint,
-                true);
-            player.CtmTo(endPoint);
             return true;
         }
         public void Stop()
         {
-            return;
+
         }
     }
 }
