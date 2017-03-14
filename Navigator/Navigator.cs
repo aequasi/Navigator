@@ -6,32 +6,11 @@ using ZzukBot.ExtensionFramework.Interfaces;
 namespace Navigator
 {
     [Export(typeof(IBotBase))]
-    public class Navigator : IBotBase
+    class Navigator : IBotBase
     {
-        string author = "krycess";
-        string name = "Navigator";
-        int version = 1;
-        public string Author
-        {
-            get
-            {
-                return author;
-            }
-        }
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-        }
-        public int Version
-        {
-            get
-            {
-                return version;
-            }
-        }
+        public string Author { get; } = "krycess";
+        public string Name { get; } = "Navigator";
+        public int Version { get; } = 1;
         public void Dispose()
         {
             throw new NotImplementedException();
