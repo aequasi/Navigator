@@ -1,0 +1,10 @@
+c:\users\orfasanti\documents\visual studio 2015\Projects\Navigator\Navigator\bin\Debug\Navigator.dll
+c:\users\orfasanti\documents\visual studio 2015\Projects\Navigator\Navigator\bin\Debug\Navigator.pdb
+c:\users\orfasanti\documents\visual studio 2015\Projects\Navigator\Navigator\obj\Debug\Navigator.dll
+c:\users\orfasanti\documents\visual studio 2015\Projects\Navigator\Navigator\obj\Debug\Navigator.pdb
+c:\users\orfasanti\documents\visual studio 2015\Projects\Navigator\Navigator\bin\Debug\ZzukBot.exe
+c:\users\orfasanti\documents\visual studio 2015\Projects\Navigator\Navigator\bin\Debug\Fasm.NET.dll
+c:\users\orfasanti\documents\visual studio 2015\Projects\Navigator\Navigator\bin\Debug\System.Numerics.Vectors.dll
+c:\users\orfasanti\documents\visual studio 2015\Projects\Navigator\Navigator\bin\Debug\FluentBehaviourTree.dll
+c:\users\orfasanti\documents\visual studio 2015\Projects\Navigator\Navigator\bin\Debug\Newtonsoft.Json.dll
+c:\users\orfasanti\documents\visual studio 2015\Projects\Navigator\Navigator\obj\Debug\Navigator.csprojResolveAssemblyReference.cache
