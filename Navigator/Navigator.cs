@@ -1,9 +1,11 @@
 ﻿using Navigator.Engine;
 using System;
+using System.ComponentModel.Composition;
 using ZzukBot.ExtensionFramework.Interfaces;
 
 namespace Navigator
 {
+    [Export(typeof(IBotBase))]
     public class Navigator : IBotBase
     {
         string author = "krycess";
