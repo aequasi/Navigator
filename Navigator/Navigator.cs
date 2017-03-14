@@ -12,7 +12,9 @@ namespace Navigator
         public string Author { get; } = "krycess";
         public string Name { get; } = "Navigator";
         public int Version { get; } = 1;
+
         Form gui = new GUI.GUI();
+
         public void Dispose()
         {
             throw new NotImplementedException();
