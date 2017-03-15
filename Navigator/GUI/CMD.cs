@@ -7,27 +7,28 @@ namespace Navigator.GUI
 {
     public partial class CMD : Form
     {
-        public CMD()
+        private ProfileLoader ProfileLoader { get; }
+        private Pather Pather { get; }
+
+        public CMD(ProfileLoader profileLoader, Pather pather)
         {
+            ProfileLoader = profileLoader;
+            Pather = pather;
             InitializeComponent();
         }
+
+        private void StartButton_Click(object sender, EventArgs e) => Pather.Traverse();
+
+        private void StopButton_Click(object sender, EventArgs e) => Pather.Stop();
+
+        private void LoadProfileButton_Click(object sender, EventArgs e) => ProfileLoader.LoadProfile(LoadProfileOFD);
+
         private void GUI_Load(object sender, EventArgs e)
         {
 
         }
-        private void StartButton_Click(object sender, EventArgs e)
-        {
-            Pather.Instance.Traverse();
-        }
-        private void StopButton_Click(object sender, EventArgs e)
-        {
 
-        }
-        private void LoadJSONButton_Click(object sender, EventArgs e)
-        {
-            Loader.Instance.LoadJSON();
-        }
-        private void LoadJSONOFD_FileOk(object sender, CancelEventArgs e)
+        private void LoadProfileOFD_FileOk(object sender, CancelEventArgs e)
         {
 
         }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using ZzukBot.Game.Statics;
 using ZzukBot.Objects;
 
@@ -6,20 +6,35 @@ namespace Navigator.Engine
 {
     public class Pather
     {
-        private static Lazy<Pather> _instance = new Lazy<Pather>(() => new Pather());
-        public static Pather Instance => _instance.Value;
-        private Location[] waypoints = Loader.Instance.waypoints;
-        int i;
+        private Navigation NavigationInstance { get; }
+        private ObjectManager ObjectManagerInstance { get; }
+        private ProfileLoader ProfileLoader { get; }
+        private List<Location> Waypoints;
+
+        private int i = 0;
+
+        public Pather(Navigation navigation, ObjectManager objectManager, ProfileLoader profileLoader)
+        {
+            NavigationInstance = navigation;
+            ObjectManagerInstance = objectManager;
+            ProfileLoader = profileLoader;
+            Waypoints = ProfileLoader.Waypoints;
+        }
 
         public void Traverse()
         {
-            var player = ObjectManager.Instance.Player;
-            Location curPoint = player.Position;
-            Location endPoint = waypoints[i];
-            var path = Navigation.Instance.CalculatePath(ObjectManager.Instance.Player.MapId, curPoint, endPoint, true);
+            var player = ObjectManagerInstance.Player;
 
-            player.CtmTo(endPoint);
+            // What is this path doing?
+            var path = NavigationInstance.CalculatePath(player.MapId, player.Position, Waypoints[i], true);
+
+            player.CtmTo(Waypoints[i]);
             i++;
+        }
+
+        public void Stop()
+        {
+            ObjectManagerInstance.Player.CtmStopMovement();
         }
     }
 }
