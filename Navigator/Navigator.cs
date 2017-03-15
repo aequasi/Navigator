@@ -1,4 +1,5 @@
 ﻿using Navigator.Engine;
+using Navigator.GUI;
 using System;
 using System.ComponentModel.Composition;
 using System.Windows.Forms;
@@ -13,7 +14,7 @@ namespace Navigator
         public string Name { get; } = "Navigator";
         public int Version { get; } = 1;
 
-        Form gui = new GUI.GUI();
+        Form cmd = new CMD();
 
         public void Dispose()
         {
@@ -29,9 +30,9 @@ namespace Navigator
         }
         public void ShowGui()
         {
-            gui.Dispose();
-            gui = new GUI.GUI();
-            gui.Show();
+            cmd.Dispose();
+            cmd = new CMD();
+            cmd.Show();
         }
         public bool Start(Action parStopCallback)
         {

@@ -1,7 +1,12 @@
-﻿namespace Navigator.GUI
+﻿using System;
+
+namespace Navigator.GUI
 {
-    partial class GUI
+    partial class CMD
     {
+        private static Lazy<CMD> _instance = new Lazy<CMD>(() => new CMD());
+        public static CMD Instance => _instance.Value;
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -89,6 +94,6 @@
         private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.Button StopButton;
         private System.Windows.Forms.Button LoadXMLButton;
-        private System.Windows.Forms.OpenFileDialog LoadXMLOFD;
+        public System.Windows.Forms.OpenFileDialog LoadXMLOFD;
     }
 }
