@@ -12,14 +12,12 @@ namespace Navigator.Engine.Parser
         public float Y { get; set; }
         public float Z { get; set; }
         public string Type { get; set; }
-        public Location[] waypoints { get; set; }
-        int i;
+        public Location Location { get; set; }
 
         [OnDeserialized]
         private void OnDeserialized(StreamingContext context)
         {
-            waypoints[i] = new Location(X, Y, Z);
-            i++;
+            Location = new Location(X, Y, Z);
         }
     }
 }

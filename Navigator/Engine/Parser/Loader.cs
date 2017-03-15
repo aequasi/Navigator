@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using ZzukBot.Objects;
 
@@ -11,6 +12,7 @@ namespace Navigator.Engine.Parser
     {
         private static Lazy<Loader> _instance = new Lazy<Loader>(() => new Loader());
         public static Loader Instance => _instance.Value;
+        public Location[] waypoints;
 
         public void LoadJSON()
         {
@@ -19,7 +21,8 @@ namespace Navigator.Engine.Parser
             {
                 StreamReader sr = new StreamReader(CMD.Instance.LoadJSONOFD.FileName);
                 string json = sr.ReadToEnd();
-                ProfileData waypoints = JsonConvert.DeserializeObject<ProfileData>(json);
+                ProfileData profileData = JsonConvert.DeserializeObject<ProfileData>(json);
+                waypoints = profileData.Profile.Hotspots.Select(x => x.Location).ToArray();
             }
         }
     }

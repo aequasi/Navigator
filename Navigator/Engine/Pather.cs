@@ -9,7 +9,7 @@ namespace Navigator.Engine
     {
         private static Lazy<Pather> _instance = new Lazy<Pather>(() => new Pather());
         public static Pather Instance => _instance.Value;
-        private Location[] waypoints = Hotspot.Instance.waypoints;
+        private Location[] waypoints = Loader.Instance.waypoints;
         int i;
 
         public void Traverse()
