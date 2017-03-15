@@ -19,6 +19,7 @@ namespace Navigator.Engine.Parser
         private void OnDeserialized(StreamingContext context)
         {
             waypoints[i] = new Location(X, Y, Z);
+            i++;
         }
     }
 }
