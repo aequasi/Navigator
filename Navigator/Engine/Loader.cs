@@ -1,6 +1,6 @@
 ﻿using Navigator.GUI;
 using System;
-using System.IO;
+//using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -13,10 +13,12 @@ namespace Navigator.Engine
         private static Lazy<Loader> _instance = new Lazy<Loader>(() => new Loader());
         public static Loader Instance => _instance.Value;
 
+        private int i;
         private int x;
         private int y;
         private int z;
-        public Location[] coordList = new Location[] { };
+
+        public Location[] waypoints;
 
         public void LoadXML()
         {
@@ -37,6 +39,7 @@ namespace Navigator.Engine
             {
                 string[] doc = XDocument.Load(CMD.Instance.LoadXMLOFD.FileName).Element("Hotspots").Element("Hotspot").Descendants("X").Select(element => element.Value).ToArray();
             }
+            waypoints[i] = new Location(x, y, z);
         }
     }
 }

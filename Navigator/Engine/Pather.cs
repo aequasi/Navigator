@@ -9,7 +9,7 @@ namespace Navigator.Engine
         private static Lazy<Pather> _instance = new Lazy<Pather>(() => new Pather());
         public static Pather Instance => _instance.Value;
 
-        private Location[] coordList = Loader.Instance.coordList;
+        private Location[] waypoints = Loader.Instance.waypoints;
 
         public void CreatePath(float x, float y, float z)
         {

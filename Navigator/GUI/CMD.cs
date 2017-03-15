@@ -7,7 +7,6 @@ namespace Navigator.GUI
 {
     public partial class CMD : Form
     {
-        public string file;
         public CMD()
         {
             InitializeComponent();
