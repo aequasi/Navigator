@@ -22,6 +22,7 @@ namespace Navigator
             map.Add(this);
             map.Add(Navigation.Instance);
             map.Add(ObjectManager.Instance);
+            map.Add(new Manager(map.Get<ObjectManager>()));
             map.Add(new ProfileLoader());
             map.Add(new Pather(map.Get<Navigation>(), map.Get<ObjectManager>(), map.Get<ProfileLoader>()));
             map.Add(new CMD(map.Get<ProfileLoader>(), map.Get<Pather>()));
@@ -37,9 +38,9 @@ namespace Navigator
             settings.Show();
         }
 
-        public bool Start(Action parStopCallback) => Manager.Instance.Start(parStopCallback);
+        public bool Start(Action parStopCallback) => map.Get<Manager>().Start(parStopCallback);
 
-        public void Stop() => Manager.Instance.Stop();
+        public void Stop() => map.Get<Manager>().Stop();
 
         public void Dispose()
         {
@@ -48,12 +49,12 @@ namespace Navigator
 
         public void PauseBotbase(Action onPauseCallback)
         {
-            throw new NotImplementedException();
+            map.Get<Pather>().Pause();
         }
 
         public bool ResumeBotbase()
         {
-            throw new NotImplementedException();
+            map.Get<Pather>().Resume();
         }
     }
 }

@@ -30,9 +30,9 @@ namespace Navigator.Engine
         private string GetJson(OpenFileDialog dialog)
         {
             string content = new StreamReader(dialog.FileName).ReadToEnd();
-            if (dialog.FileName.EndsWith(".xml"))
+            if (dialog.SafeFileName.EndsWith(".xml"))
             {
-                content = ConvertXmlToJson(dialog.FileName, content);
+                content = ConvertXmlToJson(dialog.SafeFileName, content);
             }
 
             return content;
