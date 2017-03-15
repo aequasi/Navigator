@@ -1,5 +1,4 @@
-﻿using Navigator.Engine.Parser;
-using System;
+﻿using System;
 using ZzukBot.Game.Statics;
 using ZzukBot.Objects;
 

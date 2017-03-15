@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Debugger\Terminal.cs" />
-    <Compile Include="Engine\Parser\Loader.cs" />
+    <Compile Include="Engine\Loader.cs" />
     <Compile Include="Engine\Parser\Hotspot.cs" />
     <Compile Include="Engine\Parser\Profile.cs" />
     <Compile Include="Engine\Parser\ProfileData.cs" />

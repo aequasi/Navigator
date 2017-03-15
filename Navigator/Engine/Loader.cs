@@ -1,4 +1,5 @@
-﻿using Navigator.GUI;
+﻿using Navigator.Engine.Parser;
+using Navigator.GUI;
 using Newtonsoft.Json;
 using System;
 using System.IO;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ZzukBot.Objects;
 
-namespace Navigator.Engine.Parser
+namespace Navigator.Engine
 {
     public class Loader
     {
