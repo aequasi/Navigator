@@ -10,3 +10,4 @@ c:\users\orfasanti\documents\visual studio 2015\Projects\Navigator\Navigator\bin
 c:\users\orfasanti\documents\visual studio 2015\Projects\Navigator\Navigator\obj\Debug\Navigator.csprojResolveAssemblyReference.cache
 C:\Users\orfasanti\Documents\Visual Studio 2015\Projects\Navigator\Navigator\obj\Debug\Navigator.csproj.GenerateResource.Cache
 C:\Users\orfasanti\Documents\Visual Studio 2015\Projects\Navigator\Navigator\obj\Debug\Navigator.GUI.CMD.resources
+C:\Users\orfasanti\Documents\Visual Studio 2015\Projects\Navigator\Navigator\bin\Debug\Newtonsoft.Json.xml

@@ -13,7 +13,6 @@ namespace Navigator
         public string Author { get; } = "krycess";
         public string Name { get; } = "Navigator";
         public int Version { get; } = 1;
-
         Form cmd = new CMD();
 
         public void Dispose()

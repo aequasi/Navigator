@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Navigator.Debug
+namespace Navigator.Debugger
 {
     public class Terminal
     {

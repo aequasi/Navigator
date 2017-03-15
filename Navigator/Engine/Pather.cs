@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Navigator.Engine.Parser;
+using System;
 using ZzukBot.Game.Statics;
 using ZzukBot.Objects;
 
@@ -8,7 +9,6 @@ namespace Navigator.Engine
     {
         private static Lazy<Pather> _instance = new Lazy<Pather>(() => new Pather());
         public static Pather Instance => _instance.Value;
-
         private Location[] waypoints = Loader.Instance.waypoints;
 
         public void CreatePath(float x, float y, float z)

@@ -35,8 +35,8 @@ namespace Navigator.GUI
         {
             this.StartButton = new System.Windows.Forms.Button();
             this.StopButton = new System.Windows.Forms.Button();
-            this.LoadXMLButton = new System.Windows.Forms.Button();
-            this.LoadXMLOFD = new System.Windows.Forms.OpenFileDialog();
+            this.LoadJSONButton = new System.Windows.Forms.Button();
+            this.LoadJSONOFD = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // StartButton
@@ -59,30 +59,30 @@ namespace Navigator.GUI
             this.StopButton.UseVisualStyleBackColor = true;
             this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
             // 
-            // LoadXMLOFD
+            // LoadJSONButton
             // 
-            this.LoadXMLOFD.FileName = "LoadXML";
-            this.LoadXMLOFD.FileOk += new System.ComponentModel.CancelEventHandler(this.LoadXMLOFD_FileOk);
+            this.LoadJSONButton.Location = new System.Drawing.Point(12, 226);
+            this.LoadJSONButton.Name = "LoadJSONButton";
+            this.LoadJSONButton.Size = new System.Drawing.Size(75, 23);
+            this.LoadJSONButton.TabIndex = 2;
+            this.LoadJSONButton.Text = "Load JSON";
+            this.LoadJSONButton.UseVisualStyleBackColor = true;
+            this.LoadJSONButton.Click += new System.EventHandler(this.LoadJSONButton_Click);
             // 
-            // LoadXMLButton
+            // LoadJSONOFD
             // 
-            this.LoadXMLButton.Location = new System.Drawing.Point(12, 226);
-            this.LoadXMLButton.Name = "LoadXMLButton";
-            this.LoadXMLButton.Size = new System.Drawing.Size(75, 23);
-            this.LoadXMLButton.TabIndex = 2;
-            this.LoadXMLButton.Text = "LoadXML";
-            this.LoadXMLButton.UseVisualStyleBackColor = true;
-            this.LoadXMLButton.Click += new System.EventHandler(this.LoadXMLButton_Click);
+            this.LoadJSONOFD.FileName = "LoadJSON";
+            this.LoadJSONOFD.FileOk += new System.ComponentModel.CancelEventHandler(this.LoadJSONOFD_FileOk);
             // 
-            // GUI
+            // CMD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.LoadXMLButton);
+            this.Controls.Add(this.LoadJSONButton);
             this.Controls.Add(this.StopButton);
             this.Controls.Add(this.StartButton);
-            this.Name = "GUI";
+            this.Name = "CMD";
             this.Text = "GUI";
             this.Load += new System.EventHandler(this.GUI_Load);
             this.ResumeLayout(false);
@@ -93,7 +93,7 @@ namespace Navigator.GUI
 
         private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.Button StopButton;
-        private System.Windows.Forms.Button LoadXMLButton;
-        public System.Windows.Forms.OpenFileDialog LoadXMLOFD;
+        private System.Windows.Forms.Button LoadJSONButton;
+        public System.Windows.Forms.OpenFileDialog LoadJSONOFD;
     }
 }

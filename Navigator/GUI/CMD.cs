@@ -1,4 +1,5 @@
 ﻿using Navigator.Engine;
+using Navigator.Engine.Parser;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
@@ -23,11 +24,11 @@ namespace Navigator.GUI
         {
 
         }
-        private void LoadXMLButton_Click(object sender, EventArgs e)
+        private void LoadJSONButton_Click(object sender, EventArgs e)
         {
-            Loader.Instance.LoadXML();
+            Loader.Instance.LoadJSON();
         }
-        private void LoadXMLOFD_FileOk(object sender, CancelEventArgs e)
+        private void LoadJSONOFD_FileOk(object sender, CancelEventArgs e)
         {
 
         }
