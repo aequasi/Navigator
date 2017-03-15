@@ -18,7 +18,7 @@ namespace Navigator.GUI
         }
         private void StartButton_Click(object sender, EventArgs e)
         {
-            Pather.Instance.Move();
+            Pather.Instance.Traverse();
         }
         private void StopButton_Click(object sender, EventArgs e)
         {

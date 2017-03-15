@@ -10,22 +10,18 @@ namespace Navigator.Engine
         private static Lazy<Pather> _instance = new Lazy<Pather>(() => new Pather());
         public static Pather Instance => _instance.Value;
         private Location[] waypoints = Loader.Instance.waypoints;
+        int i;
 
-        public void CreatePath(float x, float y, float z)
-        {
-
-        }
-        public void Move()
+        public void Traverse()
         {
             var player = ObjectManager.Instance.Player;
-            var target = ObjectManager.Instance.Target;
-
             Location curPoint = player.Position;
-            Location endPoint = target.Position;
-
+            Location endPoint = waypoints[i];
+     
             var path = Navigation.Instance.CalculatePath(ObjectManager.Instance.Player.MapId, curPoint, endPoint, true);
 
             player.CtmTo(endPoint);
+            i++;
         }
     }
 }
