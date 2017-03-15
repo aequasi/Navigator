@@ -36,6 +36,7 @@ namespace Navigator.GUI
                 }
                 catch (IOException)
                 {
+
                 }
             }
         }

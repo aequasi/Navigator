@@ -5,7 +5,6 @@ namespace Navigator.Debug
 {
     public class Terminal
     {
-
         private static Lazy<Terminal> _instance = new Lazy<Terminal>(() => new Terminal());
         public static Terminal Instance => _instance.Value;
 

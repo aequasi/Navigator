@@ -1,5 +1,4 @@
-﻿
-namespace Navigator.Engine
+﻿namespace Navigator.Engine
 {
     public class Loader
     {
