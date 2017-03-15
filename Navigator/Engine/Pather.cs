@@ -9,7 +9,7 @@ namespace Navigator.Engine
     {
         private static Lazy<Pather> _instance = new Lazy<Pather>(() => new Pather());
         public static Pather Instance => _instance.Value;
-        private Location[] waypoints = Loader.Instance.waypoints;
+        private Location[] waypoints = Hotspot.Instance.waypoints;
         int i;
 
         public void Traverse()
@@ -17,7 +17,6 @@ namespace Navigator.Engine
             var player = ObjectManager.Instance.Player;
             Location curPoint = player.Position;
             Location endPoint = waypoints[i];
-     
             var path = Navigation.Instance.CalculatePath(ObjectManager.Instance.Player.MapId, curPoint, endPoint, true);
 
             player.CtmTo(endPoint);

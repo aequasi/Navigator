@@ -11,9 +11,8 @@ namespace Navigator.Engine.Parser
     {
         private static Lazy<Loader> _instance = new Lazy<Loader>(() => new Loader());
         public static Loader Instance => _instance.Value;
-        public Location[] waypoints;
 
-        public Location[] LoadJSON()
+        public void LoadJSON()
         {
             DialogResult result = CMD.Instance.LoadJSONOFD.ShowDialog();
             if (result == DialogResult.OK)
@@ -22,7 +21,6 @@ namespace Navigator.Engine.Parser
                 string json = sr.ReadToEnd();
                 ProfileData waypoints = JsonConvert.DeserializeObject<ProfileData>(json);
             }
-            return waypoints;
         }
     }
 }
