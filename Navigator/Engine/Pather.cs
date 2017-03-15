@@ -9,7 +9,10 @@ namespace Navigator.Engine
         private static Lazy<Pather> _instance = new Lazy<Pather>(() => new Pather());
         public static Pather Instance => _instance.Value;
 
-        public void CreatePath(float X, float Z, float Y)
+        public object fileXML;
+        private Location[] x, y, z;
+
+        public void CreatePath(float x, float y, float z)
         {
 
         }

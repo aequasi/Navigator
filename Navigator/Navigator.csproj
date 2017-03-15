@@ -47,6 +47,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Debug\Terminal.cs" />
+    <Compile Include="Engine\Loader.cs" />
     <Compile Include="Engine\Manager.cs" />
     <Compile Include="Engine\Pather.cs" />
     <Compile Include="GUI\GUI.cs">
