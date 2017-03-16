@@ -9,7 +9,7 @@ namespace Navigator.Engine
         private Pather Pather { get; }
         public event EventHandler OnPaused;
         private bool IsPaused { get; set; } = false;
-        private bool runBot = false;
+        private bool runBot;
 
         public Manager(ObjectManager objectManager, Pather pather)
         {

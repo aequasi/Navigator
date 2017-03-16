@@ -1,17 +1,11 @@
-﻿using System;
-
-namespace Navigator.GUI
+﻿namespace Navigator.GUI
 {
     partial class CMD
     {
-        private static Lazy<CMD> _instance = new Lazy<CMD>(() => new CMD());
-        public static CMD Instance => _instance.Value;
-
         /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -24,9 +18,7 @@ namespace Navigator.GUI
             }
             base.Dispose(disposing);
         }
-
         #region Windows Form Designer generated code
-
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -91,11 +83,8 @@ namespace Navigator.GUI
             this.Text = "GUI";
             this.Load += new System.EventHandler(this.GUI_Load);
             this.ResumeLayout(false);
-
         }
-
         #endregion
-
         private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.Button StopButton;
         private System.Windows.Forms.Button LoadProfileButton;
