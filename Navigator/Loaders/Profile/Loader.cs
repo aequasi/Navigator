@@ -21,9 +21,9 @@ namespace Navigator.Loaders.Profile
     }
     public class Loader
     {
-        public static async Task<ProfileData> LoadProfileAsync(string fileName, string profileName, ProfileExtension profileExtension, ProfileType profileType)
+        public async Task<ProfileData> LoadProfileAsync(string fileName, string profileName, ProfileExtension profileExtension, ProfileType profileType)
             => await Task.Run(() => LoadProfile(fileName, profileName, profileExtension, profileType));
-        public static ProfileData LoadProfile(string fileName, string profileName, ProfileExtension profileExtension, ProfileType profileType)
+        public ProfileData LoadProfile(string fileName, string profileName, ProfileExtension profileExtension, ProfileType profileType)
         {
             string content = new StreamReader(fileName).ReadToEnd();
             if (profileExtension == ProfileExtension.XML)
@@ -32,7 +32,7 @@ namespace Navigator.Loaders.Profile
             }
             return JsonConvert.DeserializeObject<ProfileData>(content);
         }
-        private static string ConvertXmlToJson(string profileName, string content, ProfileType profileType)
+        private string ConvertXmlToJson(string profileName, string content, ProfileType profileType)
         {
             string url = "http://profile-converter.herokuapp.com/xml/" + WebUtility.UrlEncode(profileName) + "/" + profileType;
             HttpWebRequest request = (HttpWebRequest) WebRequest.Create(url);

@@ -2,6 +2,7 @@
 using Navigator.Engine;
 using Navigator.GUI;
 using Navigator.Loaders;
+using Navigator.Loaders.Profile;
 using System;
 using System.ComponentModel.Composition;
 using ZzukBot.ExtensionFramework.Interfaces;
@@ -19,7 +20,8 @@ namespace Navigator
             r.Add(this);
             r.Add(Navigation.Instance);
             r.Add(ObjectManager.Instance);
-            r.Add(new ProfileLoader());
+            r.Add(new Loader());
+            r.Add(new ProfileLoader(r.Get<Loader>()));
             r.Add(new Pather(r.Get<Navigation>(), r.Get<ObjectManager>(), r.Get<ProfileLoader>()));
             r.Add(new Manager(r.Get<Pather>()));
             r.Add(new CMD(r.Get<Navigator>(), r.Get<ProfileLoader>()));
