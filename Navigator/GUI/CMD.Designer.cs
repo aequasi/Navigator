@@ -64,6 +64,7 @@
             // LoadProfileOFD
             // 
             this.LoadProfileOFD.FileName = "LoadProfileOFD";
+            this.LoadProfileOFD.Filter = "Profiles (*.xml; *.json)|*.xml; *.json";
             this.LoadProfileOFD.FileOk += new System.ComponentModel.CancelEventHandler(this.LoadProfileOFD_FileOk);
             // 
             // CMD
