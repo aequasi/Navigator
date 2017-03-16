@@ -1,10 +1,5 @@
-﻿using Navigator.Loaders.Model;
-using Newtonsoft.Json;
-using ProfileLoader;
-using System;
-using System.IO;
+﻿using Navigator.Loaders.Profile;
 using System.Linq;
-using System.Net;
 using System.Windows.Forms;
 using ZzukBot.Objects;
 
