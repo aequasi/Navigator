@@ -19,6 +19,7 @@ namespace Navigator
             r.Add(this);
             r.Add(Navigation.Instance);
             r.Add(ObjectManager.Instance);
+            r.Add(new ProfileLoader());
             r.Add(new Pather(r.Get<Navigation>(), r.Get<ObjectManager>(), r.Get<ProfileLoader>()));
             r.Add(new Manager(r.Get<Pather>()));
             r.Add(new CMD(r.Get<Navigator>(), r.Get<ProfileLoader>()));
