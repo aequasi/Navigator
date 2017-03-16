@@ -7,6 +7,7 @@ namespace Navigator.Engine
     {
         private Dictionary<Type, Func<object>> map;
         public static DependencyMap Empty => new DependencyMap();
+
         public DependencyMap()
         {
             map = new Dictionary<Type, Func<object>>();

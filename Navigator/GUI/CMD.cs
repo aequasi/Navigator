@@ -11,9 +11,9 @@ namespace Navigator.GUI
         private Pather Pather { get; }
         private ProfileLoader ProfileLoader { get; }
 
-        public CMD(Manager manager, Pather pather, ProfileLoader profileLoader)
+        public CMD(Manager manager, ProfileLoader profileLoader)
         {
-            Pather = pather;
+            Manager = manager;
             ProfileLoader = profileLoader;
             InitializeComponent();
         }
