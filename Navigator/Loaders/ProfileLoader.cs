@@ -1,5 +1,6 @@
 ﻿using Navigator.Loaders.Model;
 using Newtonsoft.Json;
+using ProfileLoader;
 using System;
 using System.IO;
 using System.Linq;
@@ -19,37 +20,14 @@ namespace Navigator.Loaders
             DialogResult result = dialog.ShowDialog();
             if (result == DialogResult.OK)
             {
-                ProfileData = JsonConvert.DeserializeObject<ProfileData>(GetJson(dialog));
+                ProfileData = Loader.LoadProfile(
+                    dialog.FileName,
+                    dialog.SafeFileName.Replace(".xml", "").Replace(".json", ""),
+                    dialog.SafeFileName.EndsWith(".xml") ? ProfileExtension.XML : ProfileExtension.JSON,
+                    ProfileType.Travel
+                );
                 waypoints = ProfileData.Profile.Hotspots.Select(x => x.Location).ToArray();
             }
-        }
-        private string GetJson(OpenFileDialog dialog)
-        {
-            string content = new StreamReader(dialog.FileName).ReadToEnd();
-            if (dialog.SafeFileName.EndsWith(".xml"))
-            {
-                content = ConvertXmlToJson(dialog.SafeFileName, content);
-            }
-            return content;
-        }
-        private string ConvertXmlToJson(string profileName, string content)
-        {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"http://profile-converter.herokuapp.com/xml/{profileName}");
-            byte[] bytes;
-            bytes = System.Text.Encoding.ASCII.GetBytes(content);
-            request.ContentType = "text/xml; encoding='utf-8'";
-            request.ContentLength = bytes.Length;
-            request.Method = "POST";
-            Stream requestStream = request.GetRequestStream();
-            requestStream.Write(bytes, 0, bytes.Length);
-            requestStream.Close();
-            HttpWebResponse response;
-            response = (HttpWebResponse)request.GetResponse();
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                return new StreamReader(response.GetResponseStream()).ReadToEnd();
-            }
-            throw new Exception("Could not convert XML to JSON: " + response.ToString());
         }
     }
 }
