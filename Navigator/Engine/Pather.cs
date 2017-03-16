@@ -21,8 +21,9 @@ namespace Navigator.Engine
         }
         public void Traverse()
         {
-            LocalPlayer player = OMInstance.Player;
-            player.CtmTo(waypoints[i]);
+            var player = OMInstance.Player;
+            Location targetLocation = waypoints[i];
+            player.CtmTo(targetLocation);
             i++;
         }
     }
