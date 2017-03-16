@@ -1,5 +1,4 @@
-﻿using System;
-using ZzukBot.Game.Statics;
+﻿using ZzukBot.Game.Statics;
 
 namespace Navigator.Engine
 {
@@ -7,9 +6,7 @@ namespace Navigator.Engine
     {
         private ObjectManager ObjectManagerInstance { get; }
         private Pather Pather { get; }
-        public event EventHandler OnPaused;
         private bool IsPaused { get; set; } = false;
-        private bool runBot;
 
         public Manager(ObjectManager objectManager, Pather pather)
         {
@@ -18,7 +15,7 @@ namespace Navigator.Engine
         }
         public bool Start()
         {
-            return !ObjectManagerInstance.IsIngame ? runBot = false : true;
+            return !ObjectManagerInstance.IsIngame ? false : true;
         }
         public void Stop()
         {
@@ -27,7 +24,6 @@ namespace Navigator.Engine
         public void Pause()
         {
             IsPaused = true;
-            OnPaused(this, new EventArgs());
         }
         public bool Resume()
         {

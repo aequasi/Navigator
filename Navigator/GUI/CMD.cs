@@ -8,7 +8,6 @@ namespace Navigator.GUI
     public partial class CMD : Form
     {
         private Manager Manager { get; }
-        private Pather Pather { get; }
         private ProfileLoader ProfileLoader { get; }
 
         public CMD(Manager manager, ProfileLoader profileLoader)

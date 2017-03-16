@@ -8,7 +8,7 @@ namespace Navigator.Engine
     public class Pather
     {
         private Navigation NavigationInstance { get; }
-        private ObjectManager ObjectManagerInstance { get; }
+        private ObjectManager OMInstance { get; }
         private ProfileLoader ProfileLoader { get; }
         private List<Location> waypoints;
         private int i = 0;
@@ -17,13 +17,13 @@ namespace Navigator.Engine
         public Pather(Navigation navigation, ObjectManager objectManager, ProfileLoader profileLoader)
         {
             NavigationInstance = navigation;
-            ObjectManagerInstance = objectManager;
+            OMInstance = objectManager;
             ProfileLoader = profileLoader;
             waypoints = ProfileLoader.Waypoints;
         }
         public void Traverse()
         {
-            LocalPlayer player = ObjectManagerInstance.Player;
+            LocalPlayer player = OMInstance.Player;
             Location targetLocation = waypoints[i];
 
             // While the player is futher than IS_CLOSE_DISTANCE from the target location, calculate the path, and CTM to the first place possible.
