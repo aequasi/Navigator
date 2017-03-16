@@ -14,7 +14,6 @@ namespace Navigator
 
         public Navigator()
         {
-            map.Add(this);
             map.Add(Navigation.Instance);
             map.Add(ObjectManager.Instance);
             map.Add(new Manager(map.Get<ObjectManager>(), map.Get<Pather>()));
