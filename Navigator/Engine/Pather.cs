@@ -11,7 +11,7 @@ namespace Navigator.Engine
         private Navigation NavigationInstance { get; }
         private ObjectManager OMInstance { get; }
         private ProfileLoader ProfileLoader { get; }
-        private List<Location> waypoints;
+        private Location[] waypoints;
         private int i = 0;
         private const float proximity = 50;
 
@@ -20,7 +20,7 @@ namespace Navigator.Engine
             NavigationInstance = navigation;
             OMInstance = objectManager;
             ProfileLoader = profileLoader;
-            waypoints = ProfileLoader.Waypoints;
+            waypoints = ProfileLoader.waypoints;
         }
         public void Traverse()
         {

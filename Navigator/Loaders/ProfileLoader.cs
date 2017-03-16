@@ -1,7 +1,6 @@
 ﻿using Navigator.Loaders.Model;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -13,7 +12,7 @@ namespace Navigator.Loaders
     public class ProfileLoader
     {
         public ProfileData ProfileData;
-        public List<Location> Waypoints;
+        public Location[] waypoints;
 
         public void LoadProfile(OpenFileDialog dialog)
         {
@@ -21,8 +20,7 @@ namespace Navigator.Loaders
             if (result == DialogResult.OK)
             {
                 ProfileData = JsonConvert.DeserializeObject<ProfileData>(GetJson(dialog));
-
-                Waypoints = ProfileData.Profile.Hotspots.Select(x => x.Location).ToList();
+                waypoints = ProfileData.Profile.Hotspots.Select(x => x.Location).ToArray();
             }
         }
         private string GetJson(OpenFileDialog dialog)
