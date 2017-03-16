@@ -1,5 +1,4 @@
-﻿using Navigator.Engine;
-using Navigator.Loaders;
+﻿using Navigator.Loaders;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
@@ -8,17 +7,18 @@ namespace Navigator.GUI
 {
     public partial class CMD : Form
     {
-        private Manager Manager { get; }
+        private Navigator Navigator { get; }
         private ProfileLoader ProfileLoader { get; }
+        private Action onStopCallback;
 
-        public CMD(Manager manager, ProfileLoader profileLoader)
+        public CMD(Navigator navigator, ProfileLoader profileLoader)
         {
-            Manager = manager;
+            Navigator = navigator;
             ProfileLoader = profileLoader;
             InitializeComponent();
         }
-        private void StartButton_Click(object sender, EventArgs e) => Manager.Start();
-        private void StopButton_Click(object sender, EventArgs e) => Manager.Stop();
+        private void StartButton_Click(object sender, EventArgs e) => Navigator.Start(onStopCallback);
+        private void StopButton_Click(object sender, EventArgs e) => Navigator.Stop();
         private void LoadProfileButton_Click(object sender, EventArgs e) => ProfileLoader.LoadProfile(LoadProfileOFD);
         private void GUI_Load(object sender, EventArgs e)
         {

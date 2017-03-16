@@ -1,36 +1,37 @@
-﻿using ZzukBot.Game.Statics;
+﻿using System;
 
 namespace Navigator.Engine
 {
     public class Manager
     {
-        private ObjectManager ObjectManagerInstance { get; }
         private Pather Pather { get; }
-        private bool IsPaused { get; set; } = false;
+        private Action stopCallback;
 
-        public Manager(ObjectManager objectManager, Pather pather)
+        public Manager(Pather pather)
         {
-            ObjectManagerInstance = objectManager;
             Pather = pather;
         }
-        public bool Start()
+        public bool Start(Action onStopCallback)
         {
             Pather.Traverse();
+            stopCallback = onStopCallback;
             return true;
         }
         public void Stop()
         {
-            ObjectManagerInstance.Player.CtmStopMovement();
+
         }
         public void Pause()
         {
-            IsPaused = true;
+
         }
         public bool Resume()
         {
-            IsPaused = false;
-            Pather.Traverse();
             return true;
+        }
+        private void Pulse()
+        {
+            stopCallback();
         }
     }
 }
