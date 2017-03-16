@@ -35,15 +35,16 @@ namespace Navigator.GUI
         {
             this.StartButton = new System.Windows.Forms.Button();
             this.StopButton = new System.Windows.Forms.Button();
-            this.LoadJSONButton = new System.Windows.Forms.Button();
-            this.LoadJSONOFD = new System.Windows.Forms.OpenFileDialog();
+            this.LoadProfileButton = new System.Windows.Forms.Button();
+            this.LoadProfileOFD = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // StartButton
             // 
-            this.StartButton.Location = new System.Drawing.Point(116, 226);
+            this.StartButton.Location = new System.Drawing.Point(174, 348);
+            this.StartButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.StartButton.Name = "StartButton";
-            this.StartButton.Size = new System.Drawing.Size(75, 23);
+            this.StartButton.Size = new System.Drawing.Size(112, 35);
             this.StartButton.TabIndex = 0;
             this.StartButton.Text = "Start";
             this.StartButton.UseVisualStyleBackColor = true;
@@ -51,37 +52,41 @@ namespace Navigator.GUI
             // 
             // StopButton
             // 
-            this.StopButton.Location = new System.Drawing.Point(197, 226);
+            this.StopButton.Location = new System.Drawing.Point(296, 348);
+            this.StopButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.StopButton.Name = "StopButton";
-            this.StopButton.Size = new System.Drawing.Size(75, 23);
+            this.StopButton.Size = new System.Drawing.Size(112, 35);
             this.StopButton.TabIndex = 1;
             this.StopButton.Text = "Stop";
             this.StopButton.UseVisualStyleBackColor = true;
             this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
             // 
-            // LoadJSONButton
+            // LoadProfileButton
             // 
-            this.LoadJSONButton.Location = new System.Drawing.Point(12, 226);
-            this.LoadJSONButton.Name = "LoadJSONButton";
-            this.LoadJSONButton.Size = new System.Drawing.Size(75, 23);
-            this.LoadJSONButton.TabIndex = 2;
-            this.LoadJSONButton.Text = "Load JSON";
-            this.LoadJSONButton.UseVisualStyleBackColor = true;
-            this.LoadJSONButton.Click += new System.EventHandler(this.LoadJSONButton_Click);
+            this.LoadProfileButton.Location = new System.Drawing.Point(18, 348);
+            this.LoadProfileButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.LoadProfileButton.Name = "LoadProfileButton";
+            this.LoadProfileButton.Size = new System.Drawing.Size(112, 35);
+            this.LoadProfileButton.TabIndex = 2;
+            this.LoadProfileButton.Text = "Load Profile";
+            this.LoadProfileButton.UseVisualStyleBackColor = true;
+            this.LoadProfileButton.Click += new System.EventHandler(this.LoadProfileButton_Click);
             // 
-            // LoadJSONOFD
+            // LoadProfileOFD
             // 
-            this.LoadJSONOFD.FileName = "LoadJSON";
-            this.LoadJSONOFD.FileOk += new System.ComponentModel.CancelEventHandler(this.LoadJSONOFD_FileOk);
+            this.LoadProfileOFD.FileName = "LoadProfile";
+            this.LoadProfileOFD.Filter = "Profiles (*.json;*.xml)|*.json;*.xml";
+            this.LoadProfileOFD.FileOk += new System.ComponentModel.CancelEventHandler(this.LoadProfileOFD_FileOk);
             // 
             // CMD
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.LoadJSONButton);
+            this.ClientSize = new System.Drawing.Size(426, 402);
+            this.Controls.Add(this.LoadProfileButton);
             this.Controls.Add(this.StopButton);
             this.Controls.Add(this.StartButton);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CMD";
             this.Text = "GUI";
             this.Load += new System.EventHandler(this.GUI_Load);
@@ -93,7 +98,7 @@ namespace Navigator.GUI
 
         private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.Button StopButton;
-        private System.Windows.Forms.Button LoadJSONButton;
-        public System.Windows.Forms.OpenFileDialog LoadJSONOFD;
+        private System.Windows.Forms.Button LoadProfileButton;
+        public System.Windows.Forms.OpenFileDialog LoadProfileOFD;
     }
 }

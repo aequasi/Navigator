@@ -5,22 +5,21 @@ namespace Navigator.Engine
 {
     public class Manager
     {
-        private static Lazy<Manager> _instance = new Lazy<Manager>(() => new Manager());
-        public static Manager Instance => _instance.Value;
-        private bool _runBot = false;
+        private ObjectManager ObjectManagerInstance { get; }
+
+        // What is this for?
+        private bool runBot = false;
+
+        public Manager(ObjectManager objectManager)
+        {
+            ObjectManagerInstance = objectManager;
+        }
 
         public bool Start(Action parCallback)
         {
-            if (!ObjectManager.Instance.IsIngame)
-            {
-                return _runBot = false;
-            }
-            if (_runBot)
-            {
-                return false;
-            }
-            return true;
+            return !ObjectManagerInstance.IsIngame ? runBot = false : !runBot;
         }
+
         public void Stop()
         {
 
