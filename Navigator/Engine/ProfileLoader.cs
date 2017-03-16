@@ -20,13 +20,11 @@ namespace Navigator.Engine
             DialogResult result = dialog.ShowDialog();
             if (result == DialogResult.OK)
             {
-
                 ProfileData = JsonConvert.DeserializeObject<ProfileData>(GetJson(dialog));
 
                 Waypoints = ProfileData.Profile.Hotspots.Select(x => x.Location).ToList();
             }
         }
-
         private string GetJson(OpenFileDialog dialog)
         {
             string content = new StreamReader(dialog.FileName).ReadToEnd();
@@ -34,10 +32,8 @@ namespace Navigator.Engine
             {
                 content = ConvertXmlToJson(dialog.SafeFileName, content);
             }
-
             return content;
         }
-
         private string ConvertXmlToJson(string profileName, string content)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create($"http://profile-converter.herokuapp.com/xml/{profileName}");
@@ -55,7 +51,6 @@ namespace Navigator.Engine
             {
                 return new StreamReader(response.GetResponseStream()).ReadToEnd();
             }
-
             throw new Exception("Could not convert XML to JSON: " + response.ToString());
         }
     }
