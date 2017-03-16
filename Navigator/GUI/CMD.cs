@@ -1,4 +1,5 @@
 ﻿using Navigator.Engine;
+using Navigator.Loaders;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;

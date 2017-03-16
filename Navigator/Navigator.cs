@@ -1,44 +1,46 @@
-﻿using Navigator.Engine;
+﻿using Navigator.DependencyMap;
+using Navigator.Engine;
 using Navigator.GUI;
+using Navigator.Loaders;
 using System;
 using System.ComponentModel.Composition;
-using ZzukBot.Game.Statics;
 using ZzukBot.ExtensionFramework.Interfaces;
+using ZzukBot.Game.Statics;
 
 namespace Navigator
 {
     [Export(typeof(IBotBase))]
     public class Navigator : IBotBase
     {
-        private DependencyMap map = new DependencyMap();
+        private Router r = new Router();
 
         public Navigator()
         {
-            map.Add(this);
-            map.Add(Navigation.Instance);
-            map.Add(ObjectManager.Instance);
-            map.Add(new ProfileLoader());
-            map.Add(new Pather(map.Get<Navigation>(), map.Get<ObjectManager>(), map.Get<ProfileLoader>()));
-            map.Add(new Manager(map.Get<ObjectManager>(), map.Get<Pather>()));
-            map.Add(new CMD(map.Get<Manager>(), map.Get<ProfileLoader>()));
+            r.Add(this);
+            r.Add(Navigation.Instance);
+            r.Add(ObjectManager.Instance);
+            r.Add(new ProfileLoader());
+            r.Add(new Pather(r.Get<Navigation>(), r.Get<ObjectManager>(), r.Get<ProfileLoader>()));
+            r.Add(new Manager(r.Get<ObjectManager>(), r.Get<Pather>()));
+            r.Add(new CMD(r.Get<Manager>(), r.Get<ProfileLoader>()));
         }
         public string Author { get; } = "krycess";
         public string Name { get; } = "Navigator";
         public int Version { get; } = 1;
         public void ShowGui()
         {
-            CMD settings = map.Get<CMD>();
+            CMD settings = r.Get<CMD>();
             if (settings.Visible)
                 settings.Hide();
             settings.Show();
         }
-        public bool Start(Action onStopCallback) => map.Get<Manager>().Start();
-        public void Stop() => map.Get<Manager>().Stop();
+        public bool Start(Action onStopCallback) => r.Get<Manager>().Start();
+        public void Stop() => r.Get<Manager>().Stop();
         public void Dispose()
         {
             throw new NotImplementedException();
         }
-        public void PauseBotbase(Action onPauseCallback) => map.Get<Manager>().Pause();
-        public bool ResumeBotbase() => map.Get<Manager>().Resume();
+        public void PauseBotbase(Action onPauseCallback) => r.Get<Manager>().Pause();
+        public bool ResumeBotbase() => r.Get<Manager>().Resume();
     }
 }

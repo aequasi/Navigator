@@ -53,11 +53,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Debugger\Terminal.cs" />
-    <Compile Include="Engine\DependencyMap.cs" />
-    <Compile Include="Engine\ProfileLoader.cs" />
-    <Compile Include="Engine\Model\Hotspot.cs" />
-    <Compile Include="Engine\Model\Profile.cs" />
-    <Compile Include="Engine\Model\ProfileData.cs" />
+    <Compile Include="DependencyMap\Router.cs" />
+    <Compile Include="Loaders\ProfileLoader.cs" />
+    <Compile Include="Loaders\Model\Hotspot.cs" />
+    <Compile Include="Loaders\Model\Profile.cs" />
+    <Compile Include="Loaders\Model\ProfileData.cs" />
     <Compile Include="Engine\Manager.cs" />
     <Compile Include="Engine\Pather.cs" />
     <Compile Include="GUI\CMD.cs">
@@ -77,6 +77,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Navigator.Loaders;
+using System;
 using System.Collections.Generic;
 using ZzukBot.Game.Statics;
 using ZzukBot.Objects;

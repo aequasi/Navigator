@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using ZzukBot.Objects;
 
-namespace Navigator.Engine.Parser
+namespace Navigator.Loaders.Model
 {
     public class Hotspot
     {

@@ -1,4 +1,4 @@
-﻿namespace Navigator.Engine.Parser
+﻿namespace Navigator.Loaders.Model
 {
     public class ProfileData
     {

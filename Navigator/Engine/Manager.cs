@@ -15,7 +15,8 @@ namespace Navigator.Engine
         }
         public bool Start()
         {
-            return !ObjectManagerInstance.IsIngame ? false : true;
+            Pather.Traverse();
+            return true;
         }
         public void Stop()
         {

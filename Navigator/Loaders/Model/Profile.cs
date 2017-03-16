@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Navigator.Engine.Parser
+namespace Navigator.Loaders.Model
 {
     public class Profile
     {
