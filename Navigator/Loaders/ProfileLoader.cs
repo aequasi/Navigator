@@ -8,7 +8,7 @@ namespace Navigator.Loaders
     public class ProfileLoader
     {
         public ProfileData ProfileData;
-        public Location[] waypoints;
+        public Location[] waypoints = new Location[] { };
 
         public void LoadProfile(OpenFileDialog dialog)
         {

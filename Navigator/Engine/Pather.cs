@@ -9,7 +9,7 @@ namespace Navigator.Engine
         private Navigation NavInstance { get; }
         private ObjectManager OMInstance { get; }
         private ProfileLoader ProfileLoader { get; }
-        private Location[] waypoints = new Location[] { };
+        private Location[] waypoints;
         int i = 0;
         
         public Pather(Navigation navigation, ObjectManager objectManager, ProfileLoader profileLoader)
@@ -21,7 +21,9 @@ namespace Navigator.Engine
         }
         public void Traverse()
         {
-            waypoints[i] = waypoints[i + 1];
+            LocalPlayer player = OMInstance.Player;
+            player.CtmTo(waypoints[i]);
+            i++;
         }
     }
 }
