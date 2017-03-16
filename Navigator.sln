@@ -5,12 +5,12 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Navigator", "Navigator\Navigator.csproj", "{2917A593-A1A2-4D33-9C87-8F14E36D7D00}"
 EndProject
-Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "ZzukBot", "..\..\..\..\..\Bot\Internal\ZzukBot.exe", "{8B1124B1-0951-49FB-90B0-F6DF4BD56EA8}"
+Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "ZzukBot", "..\..\..\Zzuk3\Internal\ZzukBot.exe", "{F32F303B-2741-427E-8016-CF5B4E6803D3}"
 	ProjectSection(DebuggerProjectSystem) = preProject
 		PortSupplier = 00000000-0000-0000-0000-000000000000
-		Executable = C:\Bot\Internal\ZzukBot.exe
-		RemoteMachine = DESKTOP-HNG7O7O
-		StartingDirectory = C:\Bot\Internal
+		Executable = C:\Users\orfasanti\Documents\Zzuk3\Internal\ZzukBot.exe
+		RemoteMachine = DESKTOP-18CNC49
+		StartingDirectory = C:\Users\orfasanti\Documents\Zzuk3\Internal
 		Environment = Default
 		LaunchingEngine = 00000000-0000-0000-0000-000000000000
 		UseLegacyDebugEngines = No
@@ -34,10 +34,10 @@ Global
 		{2917A593-A1A2-4D33-9C87-8F14E36D7D00}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2917A593-A1A2-4D33-9C87-8F14E36D7D00}.Release|x86.ActiveCfg = Release|Any CPU
 		{2917A593-A1A2-4D33-9C87-8F14E36D7D00}.Release|x86.Build.0 = Release|Any CPU
-		{8B1124B1-0951-49FB-90B0-F6DF4BD56EA8}.Debug|Any CPU.ActiveCfg = Release
-		{8B1124B1-0951-49FB-90B0-F6DF4BD56EA8}.Debug|x86.ActiveCfg = Release
-		{8B1124B1-0951-49FB-90B0-F6DF4BD56EA8}.Release|Any CPU.ActiveCfg = Release
-		{8B1124B1-0951-49FB-90B0-F6DF4BD56EA8}.Release|x86.ActiveCfg = Release
+		{F32F303B-2741-427E-8016-CF5B4E6803D3}.Debug|Any CPU.ActiveCfg = Release|x86
+		{F32F303B-2741-427E-8016-CF5B4E6803D3}.Debug|x86.ActiveCfg = Release|x86
+		{F32F303B-2741-427E-8016-CF5B4E6803D3}.Release|Any CPU.ActiveCfg = Release|x86
+		{F32F303B-2741-427E-8016-CF5B4E6803D3}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
