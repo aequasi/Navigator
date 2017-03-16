@@ -14,10 +14,11 @@ namespace Navigator
 
         public Navigator()
         {
+            map.Add(this);
             map.Add(Navigation.Instance);
             map.Add(ObjectManager.Instance);
-            map.Add(new Manager(map.Get<ObjectManager>(), map.Get<Pather>()));
             map.Add(new ProfileLoader());
+            map.Add(new Manager(map.Get<ObjectManager>(), map.Get<Pather>()));
             map.Add(new Pather(map.Get<Navigation>(), map.Get<ObjectManager>(), map.Get<ProfileLoader>()));
             map.Add(new CMD(map.Get<Manager>(), map.Get<ProfileLoader>()));
         }
