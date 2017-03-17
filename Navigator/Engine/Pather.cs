@@ -19,7 +19,7 @@ namespace Navigator.Engine
         public void Traverse()
         {
             var player = OMInstance.Player;
-            Location targetLocation = ProfileLoader.Waypoints[ProfileLoader.index++];
+            Location targetLocation = ProfileLoader.waypoints[ProfileLoader.index++];
             player.CtmTo(targetLocation);
         }
     }

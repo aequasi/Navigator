@@ -10,7 +10,7 @@ namespace Navigator.Loaders
     {
         private Loader Loader { get; }
         public ProfileData ProfileData { get; internal set; }
-        public List<Location> Waypoints { get { return ProfileData.Profile.Hotspots.Select(x => x.Location).ToList(); } }
+        public List<Location> waypoints { get { return ProfileData.Profile.Hotspots.Select(x => x.Location).ToList(); } }
         public int index = 0;
 
         public ProfileLoader(Loader loader)
