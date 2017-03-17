@@ -52,7 +52,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Debugger\Terminal.cs" />
     <Compile Include="DependencyMap\Router.cs" />
     <Compile Include="Loaders\Profile\Hotspot.cs" />
     <Compile Include="Loaders\Profile\Loader.cs" />

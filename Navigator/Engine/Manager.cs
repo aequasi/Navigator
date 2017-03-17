@@ -21,6 +21,10 @@ namespace Navigator.Engine
         {
 
         }
+        public void Dispose()
+        {
+
+        }
         public void Pause()
         {
 

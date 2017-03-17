@@ -1,4 +1,5 @@
 ﻿using Navigator.Loaders.Profile;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using ZzukBot.Objects;

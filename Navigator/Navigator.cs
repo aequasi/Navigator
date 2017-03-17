@@ -38,10 +38,7 @@ namespace Navigator
         }
         public bool Start(Action onStopCallback) => r.Get<Manager>().Start(onStopCallback);
         public void Stop() => r.Get<Manager>().Stop();
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
+        public void Dispose() => r.Get<Manager>().Dispose();
         public void PauseBotbase(Action onPauseCallback) => r.Get<Manager>().Pause();
         public bool ResumeBotbase() => r.Get<Manager>().Resume();
     }
