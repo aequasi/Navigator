@@ -9,7 +9,7 @@ namespace Navigator.GUI
     {
         private Navigator Navigator { get; }
         private ProfileLoader ProfileLoader { get; }
-        private Action onStopCallback;
+        private void onStopCallback() { }
 
         public CMD(Navigator navigator, ProfileLoader profileLoader)
         {
