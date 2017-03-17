@@ -22,6 +22,7 @@ namespace Navigator.Engine
         {
             LocalPlayer player = ObjectManager.Player;
             Logger.Instance.Log(GetClosestWaypoint().ToString());
+            player.CtmTo(GetClosestWaypoint());
         }
         public Location GetClosestWaypoint()
         {
