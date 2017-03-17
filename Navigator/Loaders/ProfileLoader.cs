@@ -8,7 +8,8 @@ namespace Navigator.Loaders
     public class ProfileLoader
     {
         private Loader Loader { get; }
-        public Location[] waypoints;
+        public ProfileData ProfileData { get; internal set; }
+        public List<Location> Waypoints { get { return ProfileData.Profile.Hotspots.Select(x => x.Location).ToList(); } }
 
         public ProfileLoader(Loader loader)
         {
@@ -19,13 +20,12 @@ namespace Navigator.Loaders
             DialogResult result = dialog.ShowDialog();
             if (result == DialogResult.OK)
             {
-                ProfileData ProfileData = Loader.LoadProfile(
+                ProfileData = Loader.LoadProfile(
                     dialog.FileName,
                     dialog.SafeFileName.Replace(".xml", "").Replace(".json", ""),
                     dialog.SafeFileName.EndsWith(".xml") ? ProfileExtension.XML : ProfileExtension.JSON,
                     ProfileType.Travel
                 );
-                waypoints = ProfileData.Profile.Hotspots.Select(x => x.Location).ToArray();
             }
         }
     }
