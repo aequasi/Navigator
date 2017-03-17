@@ -8,25 +8,27 @@ namespace Navigator.Engine
 {
     public class Pather
     {
-        private LocalPlayer Player { get; }
         private Navigation Navigation { get; }
         private ObjectManager ObjectManager { get; }
         private ProfileLoader ProfileLoader { get; }
 
-        public Pather(LocalPlayer player, Navigation navigation, ObjectManager objectManager, ProfileLoader profileLoader)
+        public Pather(Navigation navigation, ObjectManager objectManager, ProfileLoader profileLoader)
         {
             Navigation = navigation;
             ObjectManager = objectManager;
             ProfileLoader = profileLoader;
-            Player = player;
         }
         public void Traverse()
         {
+            LocalPlayer player = ObjectManager.Player;
             Logger.Instance.Log(GetClosestWaypoint().ToString());
         }
         public Location GetClosestWaypoint()
         {
-            Location closestStart = ProfileLoader.waypoints.OrderBy(x => Player.Position.GetDistanceTo(x)).First();
+            LocalPlayer player = ObjectManager.Player;
+            Location playerPos = player.Position;
+
+            Location closestStart = ProfileLoader.waypoints.OrderBy(x => playerPos.GetDistanceTo(x)).First();
             Logger.Instance.Log(closestStart.ToString());
             int index = ProfileLoader.waypoints.FindIndex(x => x.Equals(closestStart)) + 1;
             Logger.Instance.Log(index.ToString());

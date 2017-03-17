@@ -7,7 +7,6 @@ using System;
 using System.ComponentModel.Composition;
 using ZzukBot.ExtensionFramework.Interfaces;
 using ZzukBot.Game.Statics;
-using ZzukBot.Objects;
 
 namespace Navigator
 {
@@ -21,10 +20,9 @@ namespace Navigator
             r.Add(this);
             r.Add(Navigation.Instance);
             r.Add(ObjectManager.Instance);
-            r.Add(ObjectManager.Instance.Player);
             r.Add(new Loader());
             r.Add(new ProfileLoader(r.Get<Loader>()));
-            r.Add(new Pather(r.Get<LocalPlayer>(), r.Get<Navigation>(), r.Get<ObjectManager>(), r.Get<ProfileLoader>()));
+            r.Add(new Pather(r.Get<Navigation>(), r.Get<ObjectManager>(), r.Get<ProfileLoader>()));
             r.Add(new Manager(r.Get<Pather>()));
             r.Add(new CMD(r.Get<Navigator>(), r.Get<ProfileLoader>()));
         }
