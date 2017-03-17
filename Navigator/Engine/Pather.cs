@@ -1,5 +1,6 @@
 ﻿using Navigator.Debugger;
 using Navigator.Loaders;
+using System.Collections.Generic;
 using System.Linq;
 using ZzukBot.Game.Statics;
 using ZzukBot.Objects;
@@ -21,19 +22,36 @@ namespace Navigator.Engine
         public void Traverse()
         {
             LocalPlayer player = ObjectManager.Player;
-            Logger.Instance.Log(GetClosestWaypoint().ToString());
-            player.CtmTo(GetClosestWaypoint());
+
+            player.CtmTo(GetPathPoint());
+            Logger.Instance.Log(GetPathPoint().ToString());
         }
         public Location GetClosestWaypoint()
         {
             LocalPlayer player = ObjectManager.Player;
             Location playerPos = player.Position;
-
+     
             Location closestStart = ProfileLoader.waypoints.OrderBy(x => playerPos.GetDistanceTo(x)).First();
-            Logger.Instance.Log(closestStart.ToString());
             int index = ProfileLoader.waypoints.FindIndex(x => x.Equals(closestStart)) + 1;
-            Logger.Instance.Log(index.ToString());
+            if (index == ProfileLoader.waypoints.Count)
+                index = 0;
+
             return ProfileLoader.waypoints[index];
+        }
+        public Location GetPathPoint()
+        {
+            LocalPlayer player = ObjectManager.Player;
+            Location playerPos = player.Position;
+
+            Location[] pathArray = Navigation.CalculatePath(player.MapId, playerPos, GetClosestWaypoint(), true);
+            List<Location> pathList = pathArray.ToList();
+
+            Location closestStart = pathList.OrderBy(x => playerPos.GetDistanceTo(x)).First();
+            int index = pathList.FindIndex(x => x.Equals(closestStart)) + 1;
+            if (index == pathList.Count)
+                index = 0;
+
+            return pathList[index];
         }
     }
 }

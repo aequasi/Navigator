@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace Navigator.Engine
 {
@@ -6,6 +7,7 @@ namespace Navigator.Engine
     {
         private Pather Pather { get; }
         private Action stopCallback;
+        private bool running;
 
         public Manager(Pather pather)
         {
@@ -13,13 +15,14 @@ namespace Navigator.Engine
         }
         public bool Start(Action onStopCallback)
         {
-            Pather.Traverse();
+            running = true;
             stopCallback = onStopCallback;
+            Pulse();
             return true;
         }
         public void Stop()
         {
-
+            running = false;
         }
         public void Dispose()
         {
@@ -35,6 +38,11 @@ namespace Navigator.Engine
         }
         private void Pulse()
         {
+            while (running)
+            {
+                Pather.Traverse();
+                Thread.Sleep(50);
+            }
             stopCallback();
         }
     }
