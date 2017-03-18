@@ -1,5 +1,6 @@
 ﻿using Navigator.Debugger;
 using Navigator.Loaders;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ZzukBot.Game.Statics;
@@ -24,15 +25,23 @@ namespace Navigator.Engine
             LocalPlayer player = ObjectManager.Player;
 
             player.CtmTo(GetPathPoint());
-            Logger.Instance.Log(GetPathPoint().ToString());
+            //Logger.Instance.Log(GetPathPoint().ToString());
         }
         public Location GetClosestWaypoint()
         {
             LocalPlayer player = ObjectManager.Player;
             Location playerPos = player.Position;
-     
-            Location closestStart = ProfileLoader.waypoints.OrderBy(x => playerPos.GetDistanceTo(x)).First();
-            int index = ProfileLoader.waypoints.FindIndex(x => x.Equals(closestStart)) + 1;
+            Location closestWaypoint = ProfileLoader.waypoints.OrderBy(x => playerPos.GetDistanceTo(x)).First();
+            int index = ProfileLoader.waypoints.FindIndex(x => x.Equals(closestWaypoint));
+
+            return ProfileLoader.waypoints[index];
+        }
+        public Location GetNextClosestWaypoint()
+        {
+            LocalPlayer player = ObjectManager.Player;
+            Location playerPos = player.Position;
+            Location closestWaypoint = ProfileLoader.waypoints.OrderBy(x => playerPos.GetDistanceTo(x)).First();
+            int index = ProfileLoader.waypoints.FindIndex(x => x.Equals(closestWaypoint)) + 1;
             if (index == ProfileLoader.waypoints.Count)
                 index = 0;
 
@@ -42,16 +51,35 @@ namespace Navigator.Engine
         {
             LocalPlayer player = ObjectManager.Player;
             Location playerPos = player.Position;
+            Location[] pathArray;
+            List<Location> pathList;
+            Location closestWaypoint;
+            int index;
 
-            Location[] pathArray = Navigation.CalculatePath(player.MapId, playerPos, GetClosestWaypoint(), true);
-            List<Location> pathList = pathArray.ToList();
+            if (playerPos.GetDistanceTo(GetClosestWaypoint()) <= 2.0)
+            {
+                pathArray = Navigation.CalculatePath(player.MapId, playerPos, GetClosestWaypoint(), true);
+                pathList = pathArray.ToList();
 
-            Location closestStart = pathList.OrderBy(x => playerPos.GetDistanceTo(x)).First();
-            int index = pathList.FindIndex(x => x.Equals(closestStart)) + 1;
-            if (index == pathList.Count)
-                index = 0;
+                closestWaypoint = pathList.OrderBy(x => playerPos.GetDistanceTo(x)).First();
+                index = pathList.FindIndex(x => x.Equals(closestWaypoint)) + 1;
+                if (index == pathList.Count)
+                    index = 0;
+                return pathList[index];
+            }
+            else if (playerPos.GetDistanceTo(GetClosestWaypoint()) > 2.0)
+            {
+                pathArray = Navigation.CalculatePath(player.MapId, playerPos, GetNextClosestWaypoint(), true);
+                pathList = pathArray.ToList();
 
-            return pathList[index];
+                closestWaypoint = pathList.OrderBy(x => playerPos.GetDistanceTo(x)).First();
+                index = pathList.FindIndex(x => x.Equals(closestWaypoint)) + 1;
+                if (index == pathList.Count)
+                    index = 0;
+                return pathList[index];
+            }
+            else
+                throw new NullReferenceException("GetPathPoint() returned null");
         }
     }
 }
