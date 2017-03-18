@@ -13,6 +13,7 @@ namespace Navigator.Engine
         private Navigation Navigation { get; }
         private ObjectManager ObjectManager { get; }
         private ProfileLoader ProfileLoader { get; }
+        int index = -1;
 
         public Pather(Navigation navigation, ObjectManager objectManager, ProfileLoader profileLoader)
         {
@@ -30,11 +31,19 @@ namespace Navigator.Engine
         {
             LocalPlayer player = ObjectManager.Player;
             Location playerPos = player.Position;
-            Location closestWaypoint = ProfileLoader.waypoints.OrderBy(x => playerPos.GetDistanceTo(x)).First();
-            int index = ProfileLoader.waypoints.FindIndex(x => x.Equals(closestWaypoint)) + 1;
 
-            while (index == ProfileLoader.waypoints.Count())
-                return ProfileLoader.waypoints[1];
+            if (index == -1)
+            {
+                Location closestWaypoint = ProfileLoader.waypoints.OrderBy(x => playerPos.GetDistanceTo(x)).First();
+                index = ProfileLoader.waypoints.FindIndex(x => x.Equals(closestWaypoint)) + 1;
+            }
+
+            Location waypoint = ProfileLoader.waypoints[index];
+
+            if (playerPos.GetDistanceTo(waypoint) < 2)
+                index++;
+            if (index == ProfileLoader.waypoints.Count())
+                index = 0;
 
             return ProfileLoader.waypoints[index];
         }
